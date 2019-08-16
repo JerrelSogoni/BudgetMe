@@ -32,6 +32,8 @@ android/app/build/
 android/app/src/*.iml
 android/*.iml
 android/local.properties
+android/app/debug/gen
+android/app/src/debug/*.iml
 
 # IOS
 #
