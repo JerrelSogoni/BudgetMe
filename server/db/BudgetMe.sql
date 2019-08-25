@@ -4,6 +4,8 @@
 -- ------------------------------------------------------
 -- Server version	8.0.17
 
+USE budgetmedev;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -29,7 +31,7 @@ CREATE TABLE `Category` (
   PRIMARY KEY (`CategoryId`),
   UNIQUE KEY `CategoryId_UNIQUE` (`CategoryId`),
   UNIQUE KEY `Name_UNIQUE` (`Name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -56,7 +58,7 @@ CREATE TABLE `Reoccuring` (
   UNIQUE KEY `ReoccuringId_UNIQUE` (`ReoccuringId`),
   KEY `FK_REOCCURING_TRANSACTION_ID_idx` (`TransactionId`),
   CONSTRAINT `FK_REOCCURING_TRANSACTION_ID` FOREIGN KEY (`TransactionId`) REFERENCES `transaction` (`TransactionId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +92,7 @@ CREATE TABLE `Transaction` (
   KEY `UserId_idx` (`UserId`),
   CONSTRAINT `FK_TRANSACTION_CATEGORY_ID` FOREIGN KEY (`CategoryId`) REFERENCES `category` (`CategoryId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_TRANSACTION_USER_ID` FOREIGN KEY (`UserId`) REFERENCES `user` (`UserId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +128,7 @@ CREATE TABLE `User` (
   UNIQUE KEY `Username_UNIQUE` (`Username`),
   UNIQUE KEY `GoogleId_UNIQUE` (`GoogleId`),
   UNIQUE KEY `FacebookId_UNIQUE` (`FacebookId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

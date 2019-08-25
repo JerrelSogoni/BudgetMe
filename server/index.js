@@ -3,14 +3,10 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = process.ENV || 5000;
 const mysql      = require('mysql');
+const connection = require('./model/dbconnection')
 
-// const connection = mysql.createConnection({
-//   host     : 'localhost',
-//   user     : 'me',
-//   password : 'secret',
-//   database : 'my_db'
-// });
- 
-// connection.connect();
+app.get('/', (req, res)=>{
+    console.log("testing");
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
