@@ -1,31 +1,12 @@
-export class User {
-  mcName;
-  mcFacebookAuth;
-  mcSignUpDate;
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
-  constructor() {}
+const UserSchema = new Schema({
+  name: String,
+  facebookPassportId: String,
+  dateJoined: Date,
+  lastAccessed: Date,
+});
 
-  get mcName() {
-    return this.mcName;
-  }
-
-  set mcName(acName) {
-    this.mcName = acName;
-  }
-
-  get mcFacebookAuth() {
-    return this.mcFacebookAuth;
-  }
-
-  set mcFacebookAuth(acFacebookAuth) {
-    this.mcFacebookAuth = acFacebookAuth;
-  }
-
-  get mcSignUpDate() {
-    return this.mcSignUpDate;
-  }
-
-  set mcSignUpDate(acSignUpDate) {
-    this.mcSignUpDate = acSignUpDate;
-  }
-}
+const User = mongoose.model("User", UserSchema);
+exports.User = User;
